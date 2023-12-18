@@ -1,9 +1,20 @@
 const fibonacci = function(n) {
-    let one = 0;
-    let next = 1;
+    let prev2 = 1;
+    let prev1 = 1;
+    let next;
+    n = +n;//convert strings to numbers.
 
-    for(i=0; i<=n; i++){
-        
+    if (n <=0 ){
+        return "OOPS";
+    } else if ((n === 1) || (n===2) ){
+        return 1;
+    } else {
+        for(i=3; i<=n; i++){
+            next = prev1 + prev2;
+            prev2 = prev1;
+            prev1 = next;
+        }
+        return next;
     }
 };
 
